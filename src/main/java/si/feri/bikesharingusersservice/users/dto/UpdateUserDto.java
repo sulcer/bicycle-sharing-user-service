@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UpdateUserDto {
     private String username;
+    private String email;
+    private int pin;
 }

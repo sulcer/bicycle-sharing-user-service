@@ -1,5 +1,4 @@
 package si.feri.bikesharingusersservice.users.entity;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,11 +19,17 @@ public class UserEntity {
 
     private String username;
 
+    private String email;
+
+    private int pin;
+
     public UserDto toDto() {
         return UserDto
                 .builder()
                 .id(id)
                 .username(username)
+                .email(email)
+                .pin(pin)
                 .build();
     }
 }

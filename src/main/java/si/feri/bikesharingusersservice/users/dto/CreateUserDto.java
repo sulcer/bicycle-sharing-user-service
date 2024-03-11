@@ -11,11 +11,15 @@ import si.feri.bikesharingusersservice.users.entity.UserEntity;
 @Builder
 public class CreateUserDto {
     private String username;
+    private String email;
+    private int pin;
 
     public UserEntity toEntity() {
         return UserEntity
                 .builder()
                 .username(username)
+                .email(email)
+                .pin(pin)
                 .build();
     }
 }
