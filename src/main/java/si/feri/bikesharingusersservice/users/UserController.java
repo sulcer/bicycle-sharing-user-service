@@ -62,7 +62,7 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
-        if (!userService.existsById(id)) {
+        if (userService.existsById(id)) {
             log.info(STR."User with id: \{id} not found");
 
             return ResponseEntity.notFound().build();
