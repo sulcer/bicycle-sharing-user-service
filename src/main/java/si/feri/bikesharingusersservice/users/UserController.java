@@ -41,7 +41,7 @@ public class UserController {
 
         log.info(STR."Creating user with id: \{user.getId()}");
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+        return ResponseEntity.ok().body(user);
     }
 
     @PutMapping("/users/{id}")
@@ -62,7 +62,7 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
-        if (userService.existsById(id)) {
+        if (!userService.existsById(id)) {
             log.info(STR."User with id: \{id} not found");
 
             return ResponseEntity.notFound().build();
@@ -72,6 +72,6 @@ public class UserController {
 
         log.info(STR."Deleting user with id: \{id}");
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }
