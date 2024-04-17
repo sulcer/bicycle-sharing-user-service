@@ -61,7 +61,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
 
       - name: Build Docker image
-        run: docker build -t sulcer/bicycle-sharing-user-service  -f src/main/docker/Dockerfile.jvm .
+        run: docker build -t sulcer/bicycle-sharing-user-service .
 
       - name: Push Docker image
         run: docker push sulcer/bicycle-sharing-user-service
